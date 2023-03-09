@@ -2,9 +2,11 @@ import 'ex01.dart';
 import 'ex02.dart';
 import 'dart:io';
 
+import 'ex03.dart';
+
 void main(List<String> arguments) {
   print(
-      'Coloque a quantidade de numeros da sequencia fibonacci que deseja ver:');
+      'Digite 0 para ver o exercicio IMC. \nDigite 1 para ver o exercicio fibonacci. \nDigite 2 para ver o exercicio regra de 3.');
   String? dataFromUser = stdin.readLineSync(retainNewlines: false);
   switch (dataFromUser) {
     case '0':
@@ -14,6 +16,7 @@ void main(List<String> arguments) {
       exercicio2();
       break;
     case '2':
+      exercicio3();
       break;
     default:
       break;
