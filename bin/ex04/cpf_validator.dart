@@ -3,22 +3,24 @@ class CpfValidator {
   const CpfValidator({required String cpf}) : _cpf = cpf;
 
   bool validate() {
-    List<String> numbers =
-        _cpf.replaceAll('.', '').replaceAll('-', '').split('');
-    List<String> verificationNumbers = numbers.sublist(0, numbers.length - 2);
-    List<String> verificationNumbers1 = numbers.sublist(0, numbers.length - 1);
-    List<int> lastNumbers =
-        numbers.sublist(numbers.length - 2).map((e) => int.parse(e)).toList();
+    List<int> numbers = _cpf
+        .replaceAll('.', '')
+        .replaceAll('-', '')
+        .split('')
+        .map((e) => int.parse(e))
+        .toList();
+    List<int> verificationNumbers = numbers.sublist(0, numbers.length - 2);
+    List<int> verificationNumbers1 = numbers.sublist(0, numbers.length - 1);
+    List<int> lastNumbers = numbers.sublist(numbers.length - 2);
     return lastNumbers.first == verifyDigit(verificationNumbers) &&
         lastNumbers.last == verifyDigit(verificationNumbers1);
   }
 }
 
-int verifyDigit(List<String> list) {
+int verifyDigit(List<int> list) {
   double sum = 0;
   int counter = list.length + 1;
-  for (var element in list) {
-    int number = int.parse(element);
+  for (var number in list) {
     sum += (counter * number);
     counter--;
   }

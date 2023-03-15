@@ -13,13 +13,12 @@ void exercicio3() {
   double? oneDotTwo = getDoubleFromUser('Digite o valor  1.2:');
   double? twoDotOne = getDoubleFromUser('Digite o valor  2.1:');
   double? twoDotTwo = getDoubleFromUser('Digite o valor  2.2:');
-  bool allAreNull = oneDotOne == null &&
-      oneDotTwo == null &&
-      twoDotOne == null &&
-      twoDotTwo == null;
-  bool moreThanOneAreNull = (oneDotOne == null && oneDotTwo == null) ||
-      (twoDotOne == null && twoDotTwo == null);
-  if (allAreNull || moreThanOneAreNull) {
+  int quantityOfNull = 0;
+  if (oneDotOne == null) quantityOfNull++;
+  if (oneDotTwo == null) quantityOfNull++;
+  if (twoDotOne == null) quantityOfNull++;
+  if (twoDotTwo == null) quantityOfNull++;
+  if (quantityOfNull > 1) {
     print('Erro valores inválidos');
     return;
   } else {
