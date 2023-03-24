@@ -72,7 +72,7 @@ class VigenereCripto {
     bool isLetter = text[index].contains(RegExp(r'[A-Z]'));
     if (isLetter) {
       int keyCharCodeValue = key.codeUnitAt(index);
-      int textCharCodeValue = text.codeUnitAt(index);
+      int textCharCodeValue = text.toUpperCase().codeUnitAt(index);
       return String.fromCharCode(
         _returnCharCodeByVigenere(
           keyValue: keyCharCodeValue,
